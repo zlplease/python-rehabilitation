@@ -29,7 +29,7 @@ qr = qrcode.QRCode(
     border=4,
 )
 
-qr.add_data('https://www.cnblogs.com/nthforsth/')
+qr.add_data('https://www.baidu.com/')
 
 qr.make(fit=True)#fit参数为真或者没有给出version参数时，将会调用best_ fit方法来找到适合数据的最小尺寸。
 img = qr.make_image()
