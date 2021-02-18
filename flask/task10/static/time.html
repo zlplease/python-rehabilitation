@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h2>
+            <span>Countdown to commencement day</span>
+            <div>开学</div>
+        </h2>
+        <div class="countdown">
+            <div class="daySpan">Na</div>
+            <div class="hourSpan">Na</div>
+            <div class="minuteSpan">Na</div>
+            <div class="secondSpan">Na</div>            
+        </div>
+    </div>
+    <script>
+        const daySpan = document.querySelector('.daySpan'),
+              hourSpan = document.querySelector('.hourSpan'),
+              minuteSpan = document.querySelector('.minuteSpan'),
+              secondSpan = document.querySelector('.secondSpan'),
+              deadline = new Date('2021-3-12 00:00');
+
+        function countdown () {
+            const now = new Date(),remain = deadline - now;
+            let day,hour,minute,second;
+            if( remain < 0){
+                return 0;
+            }
+
+            second = Math.floor( remain / 1000 % 60 );
+            minute = Math.floor( remain / 1000 / 60 % 60);
+            hour = Math.floor( remain / 1000 / 60 / 60 % 24);
+            day = Math.floor( remain / 1000 / 60 /60 / 24);
+
+            daySpan.innerHTML = day;
+            hourSpan.innerHTML = hour;
+            minuteSpan.innerHTML = minute;
+            secondSpan.innerHTML = second;
+
+            setTimeout( countdown, 1000);
+        }
+
+        countdown();
+    </script>
+</body>
+</html>
